@@ -1,1 +1,3 @@
-# signetmail-releases
+**English:** SignetMail 1.0.0. Windows installer (`SignetMail-Setup.exe`), server deployment bundle (`signetmail-deploy.tar.gz`) and Docker image `ghcr.io/aljazeferl/signetmail-api:1.0.0`. Free for up to 50 active users. By using it you accept the licence terms (LICENSE). Guide: https://app.signetmail.si/docs/
+
+**Slovenščina:** SignetMail 1.0.0. Namestitev za Windows (`SignetMail-Setup.exe`), paket za namestitev na strežnik (`signetmail-deploy.tar.gz`) in Docker image `ghcr.io/aljazeferl/signetmail-api:1.0.0`. Brezplačno do 50 aktivnih uporabnikov. Z uporabo sprejmete licenčne pogoje (LICENSE). Navodila: https://app.signetmail.si/docs/
