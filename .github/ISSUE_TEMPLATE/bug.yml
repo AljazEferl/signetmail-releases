@@ -1,0 +1,43 @@
+name: "Napaka / Bug report"
+description: "Nekaj ne deluje, kot bi moralo. / Something does not work as it should."
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hvala za prijavo! Ne objavljajte zaupnih podatkov (imena zaposlenih, ID-ji najemnika, ključi, gesla). Za zaupne zadeve pišite na info@signetmail.si.
+        Thanks for reporting! Do not post confidential data (employee names, tenant IDs, keys, passwords). For anything confidential, e-mail info@signetmail.si.
+  - type: input
+    id: version
+    attributes:
+      label: "Različica / Version"
+      description: "Npr. 1.1.0 (portal → Licenca ali podnaslov izdaje). / E.g. 1.1.0."
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: "Področje / Area"
+      options:
+        - "Portal"
+        - "Outlook add-in (namizje/splet / desktop/web)"
+        - "Outlook add-in (telefon / mobile)"
+        - "Windows agent"
+        - "Pravilo v Exchange / Exchange transport rule"
+        - "Google Workspace / Gmail"
+        - "Namestitev / Installation (Docker, Windows)"
+        - "Drugo / Other"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: "Kaj se je zgodilo? / What happened?"
+      description: "Koraki za ponovitev, kaj ste pričakovali in kaj se je zgodilo. / Steps to reproduce, expected and actual result."
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Sporočilo o napaki ali dnevnik / Error message or log"
+      render: text

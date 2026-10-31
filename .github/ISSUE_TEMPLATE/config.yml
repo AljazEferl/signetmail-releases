@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Predlog ali ideja / Idea or feature request"
+    url: https://github.com/AljazEferl/signetmail-releases/discussions/categories/ideas
+    about: "Predlagajte izboljšavo in glasujte za predloge drugih. / Suggest an improvement and vote on others."
+  - name: "Vprašanje / Question"
+    url: https://github.com/AljazEferl/signetmail-releases/discussions/categories/q-a
+    about: "Vprašanja o namestitvi in uporabi. / Questions about installation and use."
+  - name: "Zaupno / Confidential (e-mail)"
+    url: mailto:info@signetmail.si
+    about: "Za zadeve z zaupnimi podatki ali varnostne težave. / For confidential matters or security issues."

@@ -42,6 +42,8 @@ Details: [How it works](https://app.signetmail.si/docs/how-it-works.html).
 
 ### Free for up to 50 active users
 
+> **Public beta:** free with every feature; pilot companies with more than 50 active users get a free beta licence key on request (info@signetmail.si).
+
 Community use is free with **all features** and no time limit for organizations with up to **50 active users** (people who received a signature in the last 30 days). Above that, a licence is required: it includes updates for the licence period and e-mail support on working days, 8:00–16:00 CET. Without a licence above 50 users, only a few Pro features are locked (creating and editing campaigns, new MCP connections, Overview, Users); signatures always keep working. Contact: info@signetmail.si. Terms: [LICENSE](LICENSE). SignetMail is proprietary software; the source code is not published.
 
 ### Download
@@ -116,6 +118,8 @@ Podrobnosti (angleško): [How it works](https://app.signetmail.si/docs/how-it-wo
 - **Varno po zasnovi**: utrjen strežnik, HTTPS, vloge, prijava z Entra in MFA, šifrirane varnostne kopije.
 
 ### Brezplačno do 50 aktivnih uporabnikov
+
+> **Javna beta:** brezplačno z vsemi funkcijami; pilotna podjetja z več kot 50 aktivnimi uporabniki dobijo brezplačen ključ za beto na zahtevo (info@signetmail.si).
 
 Skupnostna uporaba je brezplačna z **vsemi funkcijami** in brez časovne omejitve za organizacije do **50 aktivnih uporabnikov** (osebe, ki so v zadnjih 30 dneh prejele podpis). Nad tem je potrebna licenca: vključuje posodobitve v obdobju licence in podporo po e-pošti ob delavnikih, 8:00–16:00 CET. Brez licence nad 50 uporabniki se zaklene le nekaj Pro funkcij (ustvarjanje in urejanje kampanj, nove povezave MCP, Pregled, Uporabniki); podpisi vedno delujejo naprej. Stik: info@signetmail.si. Pogoji: [LICENSE](LICENSE). SignetMail je lastniški program, izvorna koda ni objavljena.
 
