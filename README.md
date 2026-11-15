@@ -8,7 +8,7 @@
 
 ## English
 
-SignetMail puts one consistent signature, built from your directory, into every e-mail your company sends. Change a job title or phone number in Microsoft Entra ID and every signature follows; nobody edits signatures by hand. You run the server yourself (Docker or Windows service). It is **not** in the mail path, so mail keeps flowing even when the server is down.
+SignetMail puts one consistent signature, built from your directory, into every e-mail your company sends. Change a job title or phone number in Microsoft Entra ID or Google Workspace and every signature follows; nobody edits signatures by hand. You run the server yourself (Docker or Windows service). It is **not** in the mail path, so mail keeps flowing even when the server is down.
 
 ### How it works
 
@@ -51,7 +51,7 @@ Community use is free with **all features** and no time limit for organizations 
 | | |
 |---|---|
 | **Windows Server installer** | [`SignetMail-Setup.exe`](https://github.com/AljazEferl/signetmail-releases/releases/latest/download/SignetMail-Setup.exe): installs the server as a Windows service. The installer is not code-signed yet, so SmartScreen may warn: *More info → Run anyway*. |
-| **Docker** | `ghcr.io/aljazeferl/signetmail-api` (tags `latest`, `1.1`, `1.1.0`) |
+| **Docker** | `ghcr.io/aljazeferl/signetmail-api` (tags `latest`, `1.2`, `1.2.0`) |
 | **Server deployment bundle** (Docker Compose + Caddy + scripts) | [`signetmail-deploy.tar.gz`](https://github.com/AljazEferl/signetmail-releases/releases/latest/download/signetmail-deploy.tar.gz) |
 | **Windows agent** for classic Outlook | [`SignetMail-Agent-win-x64.zip`](https://github.com/AljazEferl/signetmail-releases/releases/latest/download/SignetMail-Agent-win-x64.zip): Kerberos or Entra sign-in. |
 | **Exchange transport rule** (optional, for mobile) | [`Set-SignetMailTransportRule.ps1`](https://github.com/AljazEferl/signetmail-releases/releases/latest/download/Set-SignetMailTransportRule.ps1) |
@@ -66,6 +66,8 @@ cp .env.example .env && nano .env      # host name, Entra IDs, ACCEPT_EULA=true
 ./setup.sh && docker compose up -d
 ```
 **Windows Server:** run `SignetMail-Setup.exe`; the wizard asks for the host name, tenant and client ID of your Entra app, the portal owner and an HTTPS certificate (`.pfx`). Then upload `%ProgramData%\SignetMail\certs\graph.cer` to the Entra app and open `https://<host>/portal/`.
+
+**Google Workspace (Docker):** create a Google Cloud service account with a JSON key, allow domain-wide delegation in the Google Admin console and create an OAuth client ID for the portal sign-in. Put the key in `google/service-account.json`, add `GOOGLE_ADMIN_EMAIL`, `GOOGLE_CLIENT_ID`, `GOOGLE_DOMAIN` and `PORTAL_OWNER` to `.env`, then start with `docker compose -f docker-compose.yml -f docker-compose.google.yml up -d`. The server writes each user's signature into Gmail; nothing is installed for users. Guide: [Google Workspace](https://app.signetmail.si/docs/google-workspace.html).
 
 Step-by-step: [Installing the server](https://app.signetmail.si/docs/install-server.html) · [Entra setup](https://app.signetmail.si/docs/entra-setup.html) · [First steps](https://app.signetmail.si/docs/first-steps.html).
 
@@ -85,7 +87,7 @@ Questions and licences: info@signetmail.si. SignetMail is built and maintained i
 
 ## Slovenščina
 
-SignetMail v vsako e-pošto podjetja vstavi enoten podpis, zgrajen iz imenika. Spremenite naziv ali telefon v Microsoft Entra ID in vsi podpisi sledijo; nihče ne ureja podpisov ročno. Strežnik zaženete sami (Docker ali Windows storitev). **Ni** v poti pošte, zato pošta teče tudi, če strežnik ne deluje.
+SignetMail v vsako e-pošto podjetja vstavi enoten podpis, zgrajen iz imenika. Spremenite naziv ali telefon v Microsoft Entra ID ali Google Workspace in vsi podpisi sledijo; nihče ne ureja podpisov ročno. Strežnik zaženete sami (Docker ali Windows storitev). **Ni** v poti pošte, zato pošta teče tudi, če strežnik ne deluje.
 
 ### Kako deluje
 
@@ -128,7 +130,7 @@ Skupnostna uporaba je brezplačna z **vsemi funkcijami** in brez časovne omejit
 | | |
 |---|---|
 | **Namestitev za Windows Server** | [`SignetMail-Setup.exe`](https://github.com/AljazEferl/signetmail-releases/releases/latest/download/SignetMail-Setup.exe): namesti strežnik kot Windows storitev. Program še ni podpisan, zato lahko SmartScreen opozori: *Več informacij → Vseeno zaženi*. |
-| **Docker** | `ghcr.io/aljazeferl/signetmail-api` (oznake `latest`, `1.1`, `1.1.0`) |
+| **Docker** | `ghcr.io/aljazeferl/signetmail-api` (oznake `latest`, `1.2`, `1.2.0`) |
 | **Paket za namestitev na strežnik** (Docker Compose + Caddy + skripte) | [`signetmail-deploy.tar.gz`](https://github.com/AljazEferl/signetmail-releases/releases/latest/download/signetmail-deploy.tar.gz) |
 | **Agent za Windows** za klasični Outlook | [`SignetMail-Agent-win-x64.zip`](https://github.com/AljazEferl/signetmail-releases/releases/latest/download/SignetMail-Agent-win-x64.zip): prijava s Kerberos ali Entra. |
 | **Pravilo prenosa v Exchange** (po izbiri, za mobilne naprave) | [`Set-SignetMailTransportRule.ps1`](https://github.com/AljazEferl/signetmail-releases/releases/latest/download/Set-SignetMailTransportRule.ps1) |
@@ -143,6 +145,8 @@ cp .env.example .env && nano .env      # ime gostitelja, ID-ji Entra, ACCEPT_EUL
 ./setup.sh && docker compose up -d
 ```
 **Windows Server:** zaženite `SignetMail-Setup.exe`; čarovnik vpraša za ime gostitelja, ID imenika in aplikacije v Entra, lastnika portala in HTTPS certifikat (`.pfx`). Nato naložite `%ProgramData%\SignetMail\certs\graph.cer` v aplikacijo Entra in odprite `https://<gostitelj>/portal/`.
+
+**Google Workspace (Docker):** v Google Cloud ustvarite servisni račun s ključem JSON, v Google Admin konzoli dovolite domain-wide delegation in ustvarite ID odjemalca OAuth za prijavo v portal. Ključ shranite v `google/service-account.json`, v `.env` dodajte `GOOGLE_ADMIN_EMAIL`, `GOOGLE_CLIENT_ID`, `GOOGLE_DOMAIN` in `PORTAL_OWNER` ter zaženite `docker compose -f docker-compose.yml -f docker-compose.google.yml up -d`. Strežnik podpis vsakemu uporabniku zapiše v Gmail; uporabnikom ni treba nič nameščati. Navodila: [Google Workspace](https://app.signetmail.si/docs/google-workspace.html).
 
 Navodila po korakih (angleško): [Installing the server](https://app.signetmail.si/docs/install-server.html) · [Entra setup](https://app.signetmail.si/docs/entra-setup.html) · [First steps](https://app.signetmail.si/docs/first-steps.html).
 
